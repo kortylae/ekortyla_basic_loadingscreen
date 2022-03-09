@@ -1,0 +1,64 @@
+  <!--Loading Screen by E.Kortyla#1308-->
+      <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Created By E.Kortyla - https://discord.gg/kNmkGYayHD</title>
+        <link href="ekortyla.css" rel="stylesheet" type="text/css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+    </head>
+    <body>  
+        <div class="informacja"> 
+            <div class="inf">
+                <img src="https://cdn.discordapp.com/attachments/912133181610819584/912137672775045170/22.png"> Aby wyciszyć muzykę kliknij Spacje
+            </div>
+        </div> 
+        <div class="filtr"></div>
+        <div class='ekortyla'>
+            <div class="overcast"></div>
+            <div class='eryczek'>
+                <center><img src='https://cdn.discordapp.com/attachments/948379814681772072/949039948256919572/beztahardlife.png'></center>
+                <p class='ekortyla_tekścik'></p>
+            </div>
+            <audio id="eryczek" src="ek.mp3" autoplay="true" hidden="true" loop="true"></audio>
+        </div>
+        <div class="created">Loading Screen Created by<color> E.Kortyla</color></div>
+    </body>
+</html>
+<script>
+    
+    var play = false;
+    var myAudio = document.getElementById("eryczek");
+    
+    myAudio.volume = 0.1;
+
+    function onKeyDown(event) {
+            switch (event.keyCode) {
+                case 32:                
+                    if (play) {
+                        myAudio.pause();
+                        play = false;
+                    } else {
+                        myAudio.play();
+                        play = true;
+                    }
+                    break;
+            }
+      return false;
+    }
+
+    window.addEventListener("keydown", onKeyDown, false);
+</script>
+<script>
+    window.addEventListener('message', function(e) {
+        if (e.data.kashacters) {
+
+            $(".main").fadeOut( 800, function() {
+                setTimeout(function() {
+                    $.post("http://loadingscreen/off");
+                }, 1500);
+                
+            });
+        }
+    });
+</script>
+<!--Loading Screen by E.Kortyla#1308-->
